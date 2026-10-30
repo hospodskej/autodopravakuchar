@@ -144,7 +144,7 @@ shared:
         - { file: foto-04.webp, alt: "Převoz stavebního materiálu" }
         - { file: foto-05.webp, alt: "Nákladní vůz MAN na sídlišti" }
         - { file: foto-08.webp, alt: "Kontejner se zeminou u výkopu" }
-        - { file: foto-10.webp, alt: "Nákladní vůz MAN s naloženým materiálem" }
+        - { file: foto-10.webp, alt: "Nákladní vůz MAN s naloženým materiálem", featured: true }
         - { file: foto-11.webp, alt: "Nákladní vůz MAN na stavbě" }
         - { file: foto-12.webp, alt: "Hákový nosič s kontejnerem v lese" }
         - { file: foto-14.webp, alt: "Nákladní vůz MAN na pískovně" }
@@ -155,7 +155,7 @@ shared:
       title: Praga V3S
       description: Praga V3S s pohonem všech kol (6×6) a hákovým nosičem – do těžkého terénu a na vývoz dřeva z lesa.
       photos:
-        - { file: foto-24.webp, alt: "Praga V3S zepředu", featured: true }
+        - { file: foto-24.webp, alt: "Praga V3S zepředu" }
         - { file: foto-25.webp, alt: "Praga V3S s hákovým nosičem z boku" }
     - key: avia
       title: Avia

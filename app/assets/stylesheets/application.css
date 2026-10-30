@@ -230,14 +230,14 @@ h3 { font-size: 1.5rem; }
 .nav-link:hover, .nav-link.is-active { color: var(--green-700); }
 .nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
 
-.mobile-nav, .site-header__call { display: none; }
+.mobile-nav, .site-header__inner .site-header__call { display: none; }
 
 @media (max-width: 900px) {
   .site-nav, .site-header__cta { display: none; }
   .site-header__inner { min-height: 64px; }
 
   .mobile-nav { display: block; }
-  .site-header__call { display: grid; width: 44px; height: 44px; margin-right: 0.25rem; }
+  .site-header__inner .site-header__call { display: grid; width: 44px; height: 44px; margin-right: 0.25rem; }
   .site-header__inner { gap: 0.5rem; }
   .mobile-nav summary {
     display: grid;
@@ -277,6 +277,7 @@ h3 { font-size: 1.5rem; }
 
 /* ---------- Hero & page header ---------- */
 
+/* The photo fills the right two thirds and fades into green behind the text; on phones it sits above the text. */
 .hero {
   position: relative;
   isolation: isolate;
@@ -284,17 +285,19 @@ h3 { font-size: 1.5rem; }
   align-items: flex-end;
   min-height: min(88vh, 760px);
   padding: clamp(96px, 14vw, 160px) 0 clamp(48px, 7vw, 88px);
+  background: var(--green-950);
   color: var(--white);
   overflow: hidden;
 }
 .hero__image {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
   z-index: -2;
-  width: 100%;
+  width: 66%;
   height: 100%;
   object-fit: cover;
-  object-position: 70% 60%;
+  object-position: 45% 60%;
 }
 .hero::before {
   content: "";
@@ -302,8 +305,8 @@ h3 { font-size: 1.5rem; }
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgb(16 42 24 / 0.9) 0%, rgb(16 42 24 / 0.55) 40%, transparent 70%),
-    linear-gradient(0deg, rgb(16 42 24 / 0.55) 0%, transparent 50%);
+    linear-gradient(90deg, var(--green-950) 34%, rgb(16 42 24 / 0.7) 46%, rgb(16 42 24 / 0) 64%),
+    linear-gradient(0deg, rgb(16 42 24 / 0.5) 0%, transparent 35%);
 }
 .hero__title {
   max-width: 14ch;
@@ -314,9 +317,11 @@ h3 { font-size: 1.5rem; }
 }
 .hero__lead { max-width: 34rem; margin-bottom: 2rem; }
 
-@media (max-width: 700px) {
-  .hero::before { background: linear-gradient(0deg, rgb(16 42 24 / 0.92) 25%, rgb(16 42 24 / 0.35) 70%, rgb(16 42 24 / 0.15)); }
-  .hero__image { object-position: 78% 50%; }
+@media (max-width: 900px) {
+  .hero { --hero-photo: min(68vw, 520px); display: block; min-height: 0; padding: 0 0 3rem; }
+  .hero__image { position: relative; z-index: -2; width: 100%; height: var(--hero-photo); object-position: 45% 55%; }
+  .hero::before { background: linear-gradient(180deg, transparent calc(var(--hero-photo) - 7rem), var(--green-950) var(--hero-photo)); }
+  .hero .container { margin-top: -1.5rem; }
 }
 
 .page-header {
