@@ -1,0 +1,9 @@
+<%# locals: (photos:, lightbox: false, css_class: "photo-grid") %>
+<div class="<%= css_class %>">
+  <% photos.each do |photo| %>
+    <%= link_to (lightbox ? image_path(photo.path) : page_url(:technika)), class: "photo-grid__item",
+                data: { lightbox: (true if lightbox) } do %>
+      <%= photo_tag photo, class: "media-cover" %>
+    <% end %>
+  <% end %>
+</div>

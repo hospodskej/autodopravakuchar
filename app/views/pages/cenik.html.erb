@@ -1,38 +1,17 @@
-<%= page_header "Ceník", "Cena se odvíjí od druhu materiálu, množství a vzdálenosti. Rádi vám připravíme nabídku na míru." %>
+<%= render "shared/page_header" %>
 
 <section class="section">
   <div class="container container--narrow">
     <% if @price_groups.any? %>
       <% @price_groups.each do |category, items| %>
-        <section class="price-group">
-          <h2><%= category %></h2>
-          <table class="price-table">
-            <thead>
-              <tr><th scope="col">Položka</th><th scope="col">Cena</th></tr>
-            </thead>
-            <tbody>
-              <% items.each do |item| %>
-                <tr>
-                  <td>
-                    <%= item.name %>
-                    <% if item.note.present? %><small class="note"><%= item.note %></small><% end %>
-                  </td>
-                  <td class="price"><%= format_price(item) %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </section>
+        <%= render "price_items/group", category:, items: %>
       <% end %>
-      <p class="price-footnote">Ceny jsou orientační. Pro přesnou nabídku nás <%= link_to "kontaktujte", kontakty_path %>.</p>
+      <p class="muted">Ceny jsou orientační. Pro přesnou nabídku nás <%= link_to "kontaktujte", page_url(:kontakty) %>.</p>
     <% else %>
-      <div class="empty-state">
+      <div class="card card--accent empty-state">
         <h2>Ceník připravujeme</h2>
-        <p>Pro cenovou nabídku nás prosím kontaktujte – ozveme se co nejdříve.</p>
-        <div class="button-row button-row--center">
-          <%= phone_link class: "button button--primary" %>
-          <%= mail_to Company::EMAIL, class: "button button--secondary" %>
-        </div>
+        <p class="muted">Pro cenovou nabídku nás prosím kontaktujte – ozveme se co nejdříve.</p>
+        <%= render "shared/contact_buttons" %>
       </div>
     <% end %>
   </div>

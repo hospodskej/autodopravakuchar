@@ -1,0 +1,20 @@
+<%# locals: (category:, items:) %>
+<section class="price-group">
+  <h2><%= category %></h2>
+  <table class="card price-table">
+    <thead>
+      <tr><th scope="col">Položka</th><th scope="col">Cena</th></tr>
+    </thead>
+    <tbody>
+      <% items.each do |item| %>
+        <tr>
+          <td>
+            <%= item.name %>
+            <% if item.note.present? %><small class="muted"><%= item.note %></small><% end %>
+          </td>
+          <td class="price"><%= format_price(item) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

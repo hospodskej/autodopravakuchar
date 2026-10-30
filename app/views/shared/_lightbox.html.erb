@@ -1,0 +1,12 @@
+<% content_for :head, javascript_include_tag("lightbox", defer: true) %>
+<dialog id="lightbox" class="lightbox" aria-label="Fotografie">
+  <% { close: "Zavřít", prev: "Předchozí fotka", next: "Další fotka" }.each do |action, label| %>
+    <button type="button" class="lightbox__button lightbox__button--<%= action %>" data-action="<%= action %>" aria-label="<%= label %>">
+      <%= render "shared/icon", name: action %>
+    </button>
+  <% end %>
+  <figure class="lightbox__stage">
+    <img class="lightbox__image" alt="">
+    <figcaption><span class="lightbox__caption"></span> <span class="lightbox__counter"></span></figcaption>
+  </figure>
+</dialog>

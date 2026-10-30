@@ -1,0 +1,104 @@
+# Content of the whole site. Edit here; views and routes are generated from it.
+shared:
+  company:
+    name: Autodoprava Kuchař
+    owner: Zdeněk Kuchař
+    ico: "19365969"
+    register: Fyzická osoba zapsaná v živnostenském rejstříku.
+    tagline: Dovoz a odvoz materiálu, přeprava strojů a práce bagrem na Znojemsku.
+    description: >-
+      Autodoprava Kuchař z Těšetic u Znojma – dovoz písku, štěrku, betonu a stavebního materiálu,
+      odvoz suti a zeminy, přeprava strojů do 3,5 t a práce bagrem.
+    phone: "+420 739 291 053"
+    email: info@adkuchar.cz
+    street: Těšetice 39
+    postal_code: "671 61"
+    city: Těšetice
+    district: okres Znojmo
+    region: Znojemsko
+
+  # Order defines the navigation. `path: ""` is the home page; `nav: false` hides a page from the header menu.
+  pages:
+    - key: home
+      path: ""
+      nav: false
+      label: Úvod
+      title: Dovoz, odvoz a zemní práce na Znojemsku
+    - key: sluzby
+      path: sluzby
+      label: Služby
+      title: Služby
+      lead: Dovoz a odvoz materiálu, přeprava strojů a zemní práce – na Znojemsku a v okolí.
+    - key: technika
+      path: technika-a-vybaveni
+      label: Technika
+      title: Technika a vybavení
+      lead: Nákladní vozy MAN a Avia, kontejnery a minibagr. Kliknutím fotku zvětšíte.
+    - key: cenik
+      path: cenik
+      label: Ceník
+      title: Ceník
+      lead: Cena se odvíjí od druhu materiálu, množství a vzdálenosti. Rádi vám připravíme nabídku na míru.
+    - key: kontakty
+      path: kontakty
+      label: Kontakty
+      title: Kontakty
+      lead: Zavolejte, napište, nebo se zastavte. Domluvíme se.
+
+  services:
+    - title: Dovoz
+      summary: Písku, štěrku, betonu a veškerého stavebního materiálu.
+      items: [ Písku, Štěrku, Betonu, Veškerého stavebního materiálu ]
+      photo: foto-14.webp
+    - title: Odvoz
+      summary: Suti, zeminy a dalších věcí.
+      photo: foto-08.webp
+    - title: Přeprava
+      summary: Stavebních strojů do 3,5 t, přeprava dřeva a další.
+      photo: foto-19.webp
+    - title: Práce bagrem
+      summary: Výkopy a zemní práce dle dohody.
+      photo: foto-07.webp
+
+  # Photos grouped by vehicle. Files live in app/assets/images/technika (full size)
+  # and technika/nahled (800px thumbnails). `featured` photos appear on the home page.
+  gallery:
+    - key: man
+      title: MAN s hákovým nosičem
+      description: Nákladní vůz MAN s hákovým nosičem a výměnnými kontejnery – na dovoz materiálu i odvoz suti a zeminy.
+      photos:
+        - { file: foto-01.webp, alt: "Nákladní vůz MAN za tmy" }
+        - { file: foto-02.webp, alt: "Nákladní vůz MAN s modrým kontejnerem", featured: true }
+        - { file: foto-04.webp, alt: "Převoz stavebního materiálu" }
+        - { file: foto-05.webp, alt: "Nákladní vůz MAN na sídlišti" }
+        - { file: foto-08.webp, alt: "Kontejner se zeminou u výkopu" }
+        - { file: foto-10.webp, alt: "Nákladní vůz MAN s naloženým materiálem" }
+        - { file: foto-11.webp, alt: "Nákladní vůz MAN na stavbě" }
+        - { file: foto-12.webp, alt: "Hákový nosič s kontejnerem v lese" }
+        - { file: foto-14.webp, alt: "Nákladní vůz MAN na pískovně" }
+        - { file: foto-17.webp, alt: "Nákladní vůz MAN s nákladem dřeva", featured: true }
+        - { file: foto-18.webp, alt: "Nákladní vůz MAN s hákovým nosičem" }
+        - { file: foto-21.webp, alt: "Nákladní vůz MAN s kontejnerem dřeva" }
+    - key: avia
+      title: Avia
+      description: Avia s hákovým nosičem a výměnnými nástavbami pro menší zakázky a užší příjezdové cesty.
+      photos:
+        - { file: foto-20.webp, alt: "Modrá Avia sklápěč" }
+        - { file: foto-22.webp, alt: "Modrá Avia v podvečer", featured: true }
+        - { file: foto-23.webp, alt: "Avia s hákovým nosičem" }
+        - { file: foto-15.webp, alt: "Avia s dřevěnou nástavbou" }
+        - { file: foto-16.webp, alt: "Avia s dřevěnou nástavbou z boku" }
+    - key: minibagr
+      title: Minibagr
+      description: Minibagr pro výkopy a zemní práce. Na místo ho dovezeme sami.
+      photos:
+        - { file: foto-06.webp, alt: "Minibagr u kontejneru" }
+        - { file: foto-07.webp, alt: "Minibagr při výkopových pracích" }
+        - { file: foto-19.webp, alt: "Přeprava minibagru", featured: true }
+    - key: naklad
+      title: Přeprava a náklad
+      description: Stroje, řezivo a stavební materiál – vždy pořádně zajištěné.
+      photos:
+        - { file: foto-03.webp, alt: "Přeprava stroje na kontejneru" }
+        - { file: foto-09.webp, alt: "Zajištěný náklad v kontejneru" }
+        - { file: foto-13.webp, alt: "Řezivo zajištěné v kontejneru" }

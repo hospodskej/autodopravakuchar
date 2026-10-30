@@ -1,0 +1,25 @@
+<footer class="site-footer">
+  <div class="hazard-stripe" aria-hidden="true"></div>
+  <div class="container site-footer__grid">
+    <div>
+      <p class="site-footer__brand"><%= company.name %></p>
+      <p><%= company.tagline %></p>
+    </div>
+    <div>
+      <h2>Kontakt</h2>
+      <p><%= phone_link %><br><%= email_link %></p>
+    </div>
+    <div>
+      <h2>Adresa</h2>
+      <p><%= address_link { safe_join(company.address_lines, tag.br) } %><br><%= company.district %></p>
+    </div>
+    <div>
+      <h2>Stránky</h2>
+      <nav class="site-footer__nav" aria-label="Patička"><%= nav_links SitePage.all %></nav>
+    </div>
+  </div>
+  <div class="container site-footer__bottom">
+    <p>© <%= Date.current.year %> <%= company.name %></p>
+    <%= render "shared/legal_info" %>
+  </div>
+</footer>

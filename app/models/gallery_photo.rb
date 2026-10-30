@@ -1,17 +1,12 @@
-class GalleryPhoto
-  attr_reader :file, :alt
+class GalleryPhoto < Data.define(:file, :alt, :featured, :category)
+  extend SiteContent::Finders
 
   def self.all
-    @all ||= YAML.load_file(Rails.root.join("config/gallery.yml")).map { |attrs| new(**attrs.symbolize_keys) }.freeze
+    @all ||= GalleryCategory.all.flat_map(&:photos).freeze
   end
 
-  def self.find(file)
-    all.find { |photo| photo.file == file } || raise(ArgumentError, "Unknown gallery photo: #{file}")
-  end
-
-  def initialize(file:, alt:)
-    @file = file
-    @alt = alt
+  def self.featured
+    all.select(&:featured)
   end
 
   def path

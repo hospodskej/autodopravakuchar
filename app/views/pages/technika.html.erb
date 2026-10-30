@@ -1,13 +1,23 @@
-<%= page_header "Technika a vybavení", "Nákladní vozy MAN a Avia, kontejnery a minibagr. Kliknutím fotku zvětšíte." %>
+<%= render "shared/page_header" %>
 
-<section class="section">
-  <div class="container gallery">
-    <% @photos.each do |photo| %>
-      <%= link_to image_path(photo.path), class: "gallery__item", target: "_blank", rel: "noopener" do %>
-        <%= gallery_thumbnail photo %>
-      <% end %>
-    <% end %>
-  </div>
-</section>
+<nav class="chip-nav container" aria-label="Kategorie techniky">
+  <% GalleryCategory.all.each do |category| %>
+    <%= link_to "#{category.title} (#{category.photos.size})", "##{category.key}", class: "chip" %>
+  <% end %>
+</nav>
 
+<% GalleryCategory.all.each do |category| %>
+  <section class="section section--compact" id="<%= category.key %>">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow"><%= pluralize(category.photos.size, "fotka", plural: category.photos.size < 5 ? "fotky" : "fotek") %></p>
+        <h2><%= category.title %></h2>
+        <p class="muted"><%= category.description %></p>
+      </div>
+      <%= render "shared/photo_grid", photos: category.photos, lightbox: true %>
+    </div>
+  </section>
+<% end %>
+
+<%= render "shared/lightbox" %>
 <%= render "shared/contact_band" %>

@@ -1,47 +1,8 @@
-<%= page_header "Služby", "Dovoz a odvoz materiálu, přeprava strojů a zemní práce – na Znojemsku a v okolí." %>
+<%= render "shared/page_header" %>
 
 <section class="section">
   <div class="container service-list">
-    <article class="service-row">
-      <%= image_tag "technika/nahled/foto-14.jpg", alt: GalleryPhoto.find("foto-14.jpg").alt, loading: "lazy", class: "service-row__image" %>
-      <div class="service-row__body">
-        <span class="service-card__number">01</span>
-        <h2>Dovoz</h2>
-        <ul class="check-list">
-          <li>Písku</li>
-          <li>Štěrku</li>
-          <li>Betonu</li>
-          <li>Veškerého stavebního materiálu</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="service-row">
-      <%= image_tag "technika/nahled/foto-08.jpg", alt: GalleryPhoto.find("foto-08.jpg").alt, loading: "lazy", class: "service-row__image" %>
-      <div class="service-row__body">
-        <span class="service-card__number">02</span>
-        <h2>Odvoz</h2>
-        <p>Suti, zeminy a dalších věcí.</p>
-      </div>
-    </article>
-
-    <article class="service-row">
-      <%= image_tag "technika/nahled/foto-19.jpg", alt: GalleryPhoto.find("foto-19.jpg").alt, loading: "lazy", class: "service-row__image" %>
-      <div class="service-row__body">
-        <span class="service-card__number">03</span>
-        <h2>Přeprava</h2>
-        <p>Stavebních strojů do 3,5 t, přeprava dřeva a další.</p>
-      </div>
-    </article>
-
-    <article class="service-row">
-      <%= image_tag "technika/nahled/foto-07.jpg", alt: GalleryPhoto.find("foto-07.jpg").alt, loading: "lazy", class: "service-row__image" %>
-      <div class="service-row__body">
-        <span class="service-card__number">04</span>
-        <h2>Práce bagrem</h2>
-        <p>Práce bagrem dle dohody.</p>
-      </div>
-    </article>
+    <%= render partial: "services/row", collection: Service.all %>
   </div>
 </section>
 
