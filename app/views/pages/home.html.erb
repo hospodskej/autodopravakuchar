@@ -1,0 +1,91 @@
+<% content_for :title, "Dovoz, odvoz a zemní práce na Znojemsku" %>
+
+<section class="hero">
+  <%= image_tag "technika/foto-10.jpg", alt: "", class: "hero__image", fetchpriority: "high" %>
+  <div class="container hero__content">
+    <p class="eyebrow eyebrow--light">Těšetice · Znojemsko</p>
+    <h1 class="hero__title">Dovezeme, odvezeme,<br>vybagrujeme.</h1>
+    <p class="hero__lead">
+      Písek, štěrk, beton i veškerý stavební materiál. Odvoz suti a zeminy,
+      přeprava strojů do 3,5 t a práce bagrem – spolehlivě a za férovou cenu.
+    </p>
+    <div class="button-row">
+      <%= phone_link "Zavolat #{Company::PHONE}", class: "button button--primary button--large" %>
+      <%= link_to "Naše služby", sluzby_path, class: "button button--ghost button--large" %>
+    </div>
+  </div>
+</section>
+
+<div class="hazard-stripe" aria-hidden="true"></div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Co děláme</p>
+      <h2>Služby pro stavbu, dům i zahradu</h2>
+    </div>
+
+    <ol class="service-cards">
+      <li class="service-card">
+        <span class="service-card__number">01</span>
+        <h3>Dovoz</h3>
+        <p>Písku, štěrku, betonu a veškerého stavebního materiálu.</p>
+      </li>
+      <li class="service-card">
+        <span class="service-card__number">02</span>
+        <h3>Odvoz</h3>
+        <p>Suti, zeminy a dalších věcí.</p>
+      </li>
+      <li class="service-card">
+        <span class="service-card__number">03</span>
+        <h3>Přeprava</h3>
+        <p>Stavebních strojů do 3,5 t, přeprava dřeva a další.</p>
+      </li>
+      <li class="service-card">
+        <span class="service-card__number">04</span>
+        <h3>Práce bagrem</h3>
+        <p>Výkopy a zemní práce dle dohody.</p>
+      </li>
+    </ol>
+
+    <p class="section-more"><%= link_to "Všechny služby →", sluzby_path %></p>
+  </div>
+</section>
+
+<section class="section section--tinted">
+  <div class="container split">
+    <div class="split__media">
+      <%= image_tag "technika/nahled/foto-06.jpg", alt: GalleryPhoto.find("foto-06.jpg").alt, loading: "lazy" %>
+    </div>
+    <div class="split__body">
+      <p class="eyebrow">Vlastní technika</p>
+      <h2>Nákladní vozy, kontejnery a minibagr</h2>
+      <p>
+        Jezdíme vlastními vozy MAN a Avia s kontejnery a máme vlastní minibagr.
+        Materiál přivezeme, výkop uděláme a zeminu rovnou odvezeme – všechno od jednoho dodavatele.
+      </p>
+      <%= link_to "Prohlédnout techniku", technika_path, class: "button button--secondary" %>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading section-heading--row">
+      <div>
+        <p class="eyebrow">Z naší práce</p>
+        <h2>Fotky z akcí</h2>
+      </div>
+      <%= link_to "Celá galerie →", technika_path, class: "section-heading__link" %>
+    </div>
+    <div class="photo-strip">
+      <% @photos.each do |photo| %>
+        <%= link_to technika_path, class: "photo-strip__item" do %>
+          <%= gallery_thumbnail photo %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%= render "shared/contact_band" %>

@@ -1,30 +1,39 @@
-<%= page_heading "Ceník" %>
+<%= page_header "Ceník", "Cena se odvíjí od druhu materiálu, množství a vzdálenosti. Rádi vám připravíme nabídku na míru." %>
 
-<% if @price_groups.any? %>
-  <% @price_groups.each do |category, items| %>
-    <section class="price-group">
-      <h3><%= category %></h3>
-      <table class="price-table">
-        <thead>
-          <tr><th scope="col">Položka</th><th scope="col">Cena</th></tr>
-        </thead>
-        <tbody>
-          <% items.each do |item| %>
-            <tr>
-              <td>
-                <%= item.name %>
-                <% if item.note.present? %><small class="note"><%= item.note %></small><% end %>
-              </td>
-              <td class="price"><%= format_price(item) %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </section>
-  <% end %>
-  <p class="price-footnote">Ceny jsou orientační. Pro přesnou nabídku nás <%= link_to "kontaktujte", kontakty_path %>.</p>
-<% else %>
-  <p class="empty-state">
-    Ceník připravujeme. Pro cenovou nabídku nás prosím <%= link_to "kontaktujte", kontakty_path %>.
-  </p>
-<% end %>
+<section class="section">
+  <div class="container container--narrow">
+    <% if @price_groups.any? %>
+      <% @price_groups.each do |category, items| %>
+        <section class="price-group">
+          <h2><%= category %></h2>
+          <table class="price-table">
+            <thead>
+              <tr><th scope="col">Položka</th><th scope="col">Cena</th></tr>
+            </thead>
+            <tbody>
+              <% items.each do |item| %>
+                <tr>
+                  <td>
+                    <%= item.name %>
+                    <% if item.note.present? %><small class="note"><%= item.note %></small><% end %>
+                  </td>
+                  <td class="price"><%= format_price(item) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </section>
+      <% end %>
+      <p class="price-footnote">Ceny jsou orientační. Pro přesnou nabídku nás <%= link_to "kontaktujte", kontakty_path %>.</p>
+    <% else %>
+      <div class="empty-state">
+        <h2>Ceník připravujeme</h2>
+        <p>Pro cenovou nabídku nás prosím kontaktujte – ozveme se co nejdříve.</p>
+        <div class="button-row button-row--center">
+          <%= phone_link class: "button button--primary" %>
+          <%= mail_to Company::EMAIL, class: "button button--secondary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

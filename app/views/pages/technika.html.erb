@@ -1,9 +1,13 @@
-<%= page_heading "Technika a vybavení" %>
+<%= page_header "Technika a vybavení", "Nákladní vozy MAN a Avia, kontejnery a minibagr. Kliknutím fotku zvětšíte." %>
 
-<div class="gallery">
-  <% @images.each_with_index do |url, i| %>
-    <a href="<%= url %>" target="_blank" rel="noopener">
-      <%= image_tag url, alt: "Technika a vybavení – foto #{i + 1}", loading: "lazy", decoding: "async" %>
-    </a>
-  <% end %>
-</div>
+<section class="section">
+  <div class="container gallery">
+    <% @photos.each do |photo| %>
+      <%= link_to image_path(photo.path), class: "gallery__item", target: "_blank", rel: "noopener" do %>
+        <%= gallery_thumbnail photo %>
+      <% end %>
+    <% end %>
+  </div>
+</section>
+
+<%= render "shared/contact_band" %>

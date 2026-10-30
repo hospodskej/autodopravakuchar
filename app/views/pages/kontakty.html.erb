@@ -1,8 +1,22 @@
-<%= page_heading "Kontakty" %>
+<%= page_header "Kontakty", "Zavolejte, napište, nebo se zastavte. Domluvíme se." %>
 
-<div class="contacts">
-  <p>Telefonní číslo: <a href="tel:+420739291053">+420 739 291 053</a></p>
-  <p>Email: <%= mail_to "info@adkuchar.cz" %></p>
-  <p>Adresa: <%= link_to "Těšetice 39 PSČ 671 61 okr.Znojmo",
-                         "https://www.google.com/maps/search/?api=1&query=#{ERB::Util.url_encode("Těšetice 39, 671 61 Těšetice")}" %></p>
-</div>
+<section class="section">
+  <div class="container contact-cards">
+    <%= link_to Company::PHONE_URI, class: "contact-card" do %>
+      <span class="contact-card__label">Telefon</span>
+      <span class="contact-card__value"><%= Company::PHONE %></span>
+      <span class="contact-card__action">Zavolat →</span>
+    <% end %>
+    <%= link_to "mailto:#{Company::EMAIL}", class: "contact-card" do %>
+      <span class="contact-card__label">E-mail</span>
+      <span class="contact-card__value"><%= Company::EMAIL %></span>
+      <span class="contact-card__action">Napsat →</span>
+    <% end %>
+    <%= link_to Company::MAP_URL, class: "contact-card", target: "_blank", rel: "noopener" do %>
+      <span class="contact-card__label">Adresa</span>
+      <span class="contact-card__value"><%= Company::STREET %>, <%= Company::POSTAL_CODE %> <%= Company::CITY %></span>
+      <span class="contact-card__meta"><%= Company::DISTRICT %></span>
+      <span class="contact-card__action">Otevřít v mapě →</span>
+    <% end %>
+  </div>
+</section>

@@ -1,36 +1,83 @@
 <!DOCTYPE html>
 <html lang="cs">
   <head>
-    <title><%= [ content_for(:title), "Autodoprava Kuchař" ].compact.join(" – ") %></title>
+    <title><%= [ content_for(:title), Company::NAME ].compact.join(" – ") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Autodoprava Kuchař – dovoz a odvoz stavebního materiálu, přeprava strojů, práce bagrem. Těšetice, okr. Znojmo.">
+    <meta name="description" content="<%= content_for(:description) || "Autodoprava Kuchař z Těšetic u Znojma – dovoz písku, štěrku, betonu a stavebního materiálu, odvoz suti a zeminy, přeprava strojů do 3,5 t a práce bagrem." %>">
+    <meta name="theme-color" content="#1f4d2b">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= yield :head %>
 
-    <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/icon.png" type="image/png">
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%= stylesheet_link_tag :app %>
   </head>
 
   <body>
+    <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
+
     <header class="site-header">
-      <h1 class="site-title"><%= link_to "AUTODOPRAVA KUCHAŘ", root_path %></h1>
-      <hr>
-      <nav class="site-nav" aria-label="Hlavní menu">
-        <%= nav_link "Ceník", cenik_path %>
-        <%= nav_link "Kontakty", kontakty_path %>
-        <%= nav_link "Služby", sluzby_path %>
-        <%= nav_link "Technika a vybavení", technika_path %>
-      </nav>
-      <hr>
+      <div class="container site-header__inner">
+        <%= link_to root_path, class: "brand", aria: { label: "#{Company::NAME} – úvod" } do %>
+          <span class="brand__mark" aria-hidden="true">AK</span>
+          <span class="brand__text">
+            <span class="brand__small">Autodoprava</span>
+            <span class="brand__name">Kuchař</span>
+          </span>
+        <% end %>
+
+        <nav class="site-nav" aria-label="Hlavní menu">
+          <%= nav_links %>
+        </nav>
+
+        <%= phone_link class: "button button--primary site-header__cta" %>
+
+        <details class="mobile-nav">
+          <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+          <nav class="mobile-nav__panel" aria-label="Mobilní menu">
+            <%= nav_links %>
+            <%= phone_link "Zavolat #{Company::PHONE}", class: "button button--primary" %>
+          </nav>
+        </details>
+      </div>
     </header>
 
-    <main class="site-content">
+    <main id="obsah">
       <%= yield %>
     </main>
+
+    <footer class="site-footer">
+      <div class="hazard-stripe" aria-hidden="true"></div>
+      <div class="container site-footer__grid">
+        <div>
+          <p class="site-footer__brand">Autodoprava <strong>Kuchař</strong></p>
+          <p>Dovoz a odvoz materiálu, přeprava strojů a práce bagrem na Znojemsku.</p>
+        </div>
+        <div>
+          <h2>Kontakt</h2>
+          <p><%= phone_link %><br><%= mail_to Company::EMAIL %></p>
+        </div>
+        <div>
+          <h2>Adresa</h2>
+          <p><%= link_to Company::MAP_URL, rel: "noopener", target: "_blank" do %><%= Company::STREET %><br><%= Company::POSTAL_CODE %> <%= Company::CITY %><% end %><br><%= Company::DISTRICT %></p>
+        </div>
+        <nav aria-label="Patička">
+          <h2>Stránky</h2>
+          <ul>
+            <li><%= link_to "Úvod", root_path %></li>
+            <% ApplicationHelper::NAV_ITEMS.each do |label, route| %>
+              <li><%= link_to label, public_send(route) %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+      <div class="container site-footer__bottom">
+        <p>© <%= Date.current.year %> <%= Company::NAME %></p>
+      </div>
+    </footer>
   </body>
 </html>

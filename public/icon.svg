@@ -1,3 +1,8 @@
-<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="256" cy="256" r="256" fill="red"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <clipPath id="r"><rect width="64" height="64" rx="10"/></clipPath>
+  <g clip-path="url(#r)">
+    <rect width="64" height="64" fill="#2c6736"/>
+    <rect y="50" width="64" height="14" fill="#17427a"/>
+  </g>
+  <text x="32" y="40" text-anchor="middle" font-family="Arial Narrow, Arial, sans-serif" font-weight="700" font-size="30" fill="#fff">AK</text>
 </svg>
