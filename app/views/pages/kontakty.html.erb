@@ -1,0 +1,8 @@
+<%= page_heading "Kontakty" %>
+
+<div class="contacts">
+  <p>Telefonní číslo: <a href="tel:+420739291053">+420 739 291 053</a></p>
+  <p>Email: <%= mail_to "info@adkuchar.cz" %></p>
+  <p>Adresa: <%= link_to "Těšetice 39 PSČ 671 61 okr.Znojmo",
+                         "https://www.google.com/maps/search/?api=1&query=#{ERB::Util.url_encode("Těšetice 39, 671 61 Těšetice")}" %></p>
+</div>

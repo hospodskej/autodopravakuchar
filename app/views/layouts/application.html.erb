@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <title><%= [ content_for(:title), "Autodoprava Kuchař" ].compact.join(" – ") %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Autodoprava Kuchař – dovoz a odvoz stavebního materiálu, přeprava strojů, práce bagrem. Těšetice, okr. Znojmo.">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%= stylesheet_link_tag :app %>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <h1 class="site-title"><%= link_to "AUTODOPRAVA KUCHAŘ", root_path %></h1>
+      <hr>
+      <nav class="site-nav" aria-label="Hlavní menu">
+        <%= nav_link "Ceník", cenik_path %>
+        <%= nav_link "Kontakty", kontakty_path %>
+        <%= nav_link "Služby", sluzby_path %>
+        <%= nav_link "Technika a vybavení", technika_path %>
+      </nav>
+      <hr>
+    </header>
+
+    <main class="site-content">
+      <%= yield %>
+    </main>
+  </body>
+</html>

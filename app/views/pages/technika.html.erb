@@ -1,0 +1,9 @@
+<%= page_heading "Technika a vybavení" %>
+
+<div class="gallery">
+  <% @images.each_with_index do |url, i| %>
+    <a href="<%= url %>" target="_blank" rel="noopener">
+      <%= image_tag url, alt: "Technika a vybavení – foto #{i + 1}", loading: "lazy", decoding: "async" %>
+    </a>
+  <% end %>
+</div>
