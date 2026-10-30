@@ -1,5 +1,6 @@
 <section class="hero">
-  <%= photo_tag GalleryPhoto.find_by!(file: "foto-10.webp"), full: true, alt: "", class: "hero__image", loading: "eager", fetchpriority: "high" %>
+  <%= photo_tag GalleryPhoto.find_by!(file: "foto-10.webp"), responsive: true, sizes: "100vw",
+                alt: "", class: "hero__image", loading: "eager", fetchpriority: "high" %>
   <div class="container">
     <p class="eyebrow eyebrow--light"><%= company.city %> · <%= company.region %></p>
     <h1 class="hero__title">Dovezeme, odvezeme,<br>vybagrujeme.</h1>

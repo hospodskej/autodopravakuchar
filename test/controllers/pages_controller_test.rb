@@ -60,7 +60,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
 
     get cenik_url
     assert_select ".price-group h2", 2
-    assert_select "td.price", "450 Kč / t"
+    assert_select "td.price", "450\u00a0Kč / t"
     assert_select "td.price", "dle dohody"
   end
 

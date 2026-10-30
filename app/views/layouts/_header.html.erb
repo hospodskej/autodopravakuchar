@@ -15,7 +15,11 @@
 
     <%= phone_link class: "button button--primary site-header__cta" %>
 
-    <details class="mobile-nav">
+    <%= link_to company.phone_uri, class: "icon-button site-header__call", aria: { label: "Zavolat #{company.phone}" } do %>
+      <%= render "shared/icon", name: :phone %>
+    <% end %>
+
+    <details class="mobile-nav" data-mobile-nav>
       <summary aria-label="Menu"><span></span><span></span><span></span></summary>
       <nav class="mobile-nav__panel" aria-label="Mobilní menu">
         <%= nav_links SitePage.navigation %>

@@ -26,14 +26,17 @@ module ApplicationHelper
     link_to company.map_url, target: "_blank", rel: "noopener", **options, &block
   end
 
-  def photo_tag(photo, full: false, **options)
-    image_tag full ? photo.path : photo.thumbnail_path, alt: photo.alt, loading: "lazy", decoding: "async", **options
+  # `responsive: true` lets the browser pick the 800px thumbnail or the 1600px original by screen width.
+  def photo_tag(photo, full: false, responsive: false, **options)
+    options[:srcset] = { photo.thumbnail_path => "800w", photo.path => "1600w" } if responsive
+    image_tag (full || responsive ? photo.path : photo.thumbnail_path), alt: photo.alt, loading: "lazy", decoding: "async", **options
   end
 
   def format_price(item)
     return "dle dohody" if item.priced_individually?
 
-    amount = number_to_currency(item.price, unit: "Kč", format: "%n %u", delimiter: " ", separator: ",",
+    # Non-breaking spaces keep "1 250 Kč" together; the line may only wrap before the unit.
+    amount = number_to_currency(item.price, unit: "Kč", format: "%n\u00a0%u", delimiter: "\u00a0", separator: ",",
                                             precision: item.price.frac.zero? ? 0 : 2)
     item.unit.present? ? "#{amount} / #{item.unit}" : amount
   end
