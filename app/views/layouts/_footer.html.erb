@@ -6,10 +6,6 @@
     { icon: :facebook, label: "Facebook", url: company.facebook, external: true },
     { icon: :id, label: "IČO #{company.ico}" }
   ]
-  columns = {
-    "Služby" => Service.all.map { |service| [ service.title, page_url(:sluzby) ] },
-    "Technika" => GalleryCategory.all.map { |category| [ category.title, "#{page_url(:technika)}##{category.key}" ] }
-  }
 %>
 <footer class="site-footer">
   <div class="hazard-stripe" aria-hidden="true"></div>
@@ -38,17 +34,6 @@
         <% end %>
       </ul>
     </div>
-
-    <% columns.each do |heading, links| %>
-      <div>
-        <h2><%= heading %></h2>
-        <ul class="footer-list">
-          <% links.each do |label, url| %>
-            <li><%= link_to label, url %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
   </div>
 
   <div class="container">

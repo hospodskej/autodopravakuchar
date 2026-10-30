@@ -98,12 +98,18 @@ shared:
         - { file: foto-17.webp, alt: "Nákladní vůz MAN s nákladem dřeva", featured: true }
         - { file: foto-18.webp, alt: "Nákladní vůz MAN s hákovým nosičem" }
         - { file: foto-21.webp, alt: "Nákladní vůz MAN s kontejnerem dřeva" }
+    - key: praga
+      title: Praga V3S
+      description: Praga V3S s pohonem všech kol (6×6) a hákovým nosičem – do těžkého terénu a na vývoz dřeva z lesa.
+      photos:
+        - { file: foto-24.webp, alt: "Praga V3S zepředu", featured: true }
+        - { file: foto-25.webp, alt: "Praga V3S s hákovým nosičem z boku" }
     - key: avia
       title: Avia
       description: Avia s hákovým nosičem a výměnnými nástavbami pro menší zakázky a užší příjezdové cesty.
       photos:
         - { file: foto-20.webp, alt: "Modrá Avia sklápěč" }
-        - { file: foto-22.webp, alt: "Modrá Avia v podvečer", featured: true }
+        - { file: foto-22.webp, alt: "Modrá Avia v podvečer" }
         - { file: foto-23.webp, alt: "Avia s hákovým nosičem" }
         - { file: foto-15.webp, alt: "Avia s dřevěnou nástavbou" }
         - { file: foto-16.webp, alt: "Avia s dřevěnou nástavbou z boku" }

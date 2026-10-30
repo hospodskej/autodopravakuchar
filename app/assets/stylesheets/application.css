@@ -512,7 +512,7 @@ h3 { font-size: 1.5rem; }
 
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1.2fr 1.4fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
   padding-top: 3.5rem;
   padding-bottom: 2.5rem;
@@ -568,7 +568,7 @@ h3 { font-size: 1.5rem; }
   .service-row:nth-child(even) .service-row__image { order: 0; }
   .photo-grid--strip { grid-template-columns: repeat(2, 1fr); }
   .site-footer__grid { grid-template-columns: 1fr 1fr; }
-  .site-footer__grid > :nth-child(-n+2) { grid-column: 1 / -1; }
+  .site-footer__grid > * { grid-column: 1 / -1; }
   .lightbox__stage { padding-bottom: 80px; }
   .lightbox__image { max-height: calc(100dvh - 190px); }
   .lightbox__button--prev, .lightbox__button--next { top: auto; bottom: 16px; transform: none; }

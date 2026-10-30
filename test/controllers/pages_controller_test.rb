@@ -19,7 +19,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "iframe[src*='google']", false
     assert_select ".site-footer a[href='#{Company.current.facebook}']"
     assert_select ".site-footer a[href='#{page_url(:soukromi)}#cookies']", "Cookies"
-    assert_select ".site-footer .footer-list a", minimum: Service.all.size + GalleryCategory.all.size
+    assert_select ".site-footer h2", "Kontakt"
   end
 
   test "equipment page lists the fleet" do
