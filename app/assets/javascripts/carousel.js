@@ -1,4 +1,5 @@
-// Rotates [data-carousel] tracks one slide at a time, looping back to the start.
+// Rotates [data-carousel] tracks one slide at a time in an endless loop: the slides are followed by hidden
+// copies, and once the track has moved onto a copy it jumps back to the matching original without animation.
 // Pauses on hover, keyboard focus, hidden tab and the pause button; no autoplay with reduced motion.
 // Without JS the track is still a swipeable, scroll-snapping row.
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,12 +14,29 @@ document.addEventListener("DOMContentLoaded", () => {
     let held = false
     let timer
 
-    const offset = (slide) => slide.offsetLeft - slides[0].offsetLeft
-    const current = () => slides.findIndex((slide) => offset(slide) >= track.scrollLeft - 2)
-    const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 2
-    const goTo = (index) => track.scrollTo({ left: offset(slides[index]), behavior: reduceMotion ? "auto" : "smooth" })
-    const next = () => goTo(atEnd() ? 0 : current() + 1)
-    const prev = () => goTo(current() === 0 ? slides.length - 1 : current() - 1)
+    const count = slides.length
+    slides.forEach((slide) => {
+      const copy = slide.cloneNode(true)
+      copy.setAttribute("aria-hidden", "true")
+      copy.inert = true
+      track.append(copy)
+    })
+    const all = [...track.children]
+
+    const offset = (slide) => slide.offsetLeft - all[0].offsetLeft
+    const current = () => all.findIndex((slide) => offset(slide) >= track.scrollLeft - 2)
+    const jumpTo = (index) => track.scrollTo({ left: offset(all[index]), behavior: "instant" })
+    const goTo = (index) => track.scrollTo({ left: offset(all[index]), behavior: reduceMotion ? "instant" : "smooth" })
+    const next = () => {
+      let index = current()
+      if (index >= count) jumpTo(index -= count)
+      goTo(index + 1)
+    }
+    const prev = () => {
+      let index = current()
+      if (index === 0) jumpTo(index = count)
+      goTo(index - 1)
+    }
 
     const schedule = () => {
       clearInterval(timer)

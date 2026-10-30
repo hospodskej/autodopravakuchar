@@ -1,0 +1,17 @@
+<%= render "shared/page_header" %>
+
+<section class="section">
+  <div class="container container--narrow not-found">
+    <p class="not-found__code" aria-hidden="true">404</p>
+    <h2>Sem jsme nic nepřivezli</h2>
+    <p class="muted">
+      Adresa je možná překlepnutá, nebo stránka už neexistuje. Zkuste některou z našich stránek,
+      nebo nám rovnou zavolejte – poradíme.
+    </p>
+    <div class="button-row">
+      <%= link_to "Na úvodní stránku", page_url(:home), class: "button button--primary" %>
+      <%= phone_link "Zavolat #{company.phone}", class: "button button--secondary" %>
+    </div>
+    <nav class="not-found__links" aria-label="Stránky webu"><%= nav_links SitePage.navigation %></nav>
+  </div>
+</section>

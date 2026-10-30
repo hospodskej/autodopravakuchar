@@ -5,10 +5,6 @@ class SiteContentTest < ActiveSupport::TestCase
     Service.all.each { |service| assert_kind_of GalleryPhoto, service.photo }
   end
 
-  test "services are numbered in order" do
-    assert_equal (1..Service.all.size).map { |n| format("%02d", n) }, Service.all.map(&:number)
-  end
-
   test "home page is not in the header navigation" do
     assert_not_includes SitePage.navigation.map(&:key), "home"
   end

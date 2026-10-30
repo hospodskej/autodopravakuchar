@@ -7,7 +7,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     SitePage.all.each do |page|
       get page.url
       assert_response :success, page.key
-      assert_select "title", /#{Regexp.escape(page.title)}/
+      assert_select "title", page.document_title
       assert_select ".site-nav a", SitePage.navigation.size
       assert_select ".site-footer .legal-info", /IČO #{Company.current.ico}/
     end

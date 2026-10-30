@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="cs">
   <head>
-    <title><%= [ @page&.title, company.name ].compact.join(" – ") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="<%= @page&.lead || company.description %>">
+    <%= render "layouts/meta" %>
     <meta name="theme-color" content="#1f4d2b">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

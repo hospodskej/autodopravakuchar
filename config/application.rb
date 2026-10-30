@@ -41,6 +41,9 @@ module Autodopravakuchar
     # Single source of truth for company details, pages, services and the photo gallery.
     config.x.site = config_for(:site)
 
+    # Serve error pages (404 with the site layout) from ErrorsController.
+    config.exceptions_app = routes
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end

@@ -4,5 +4,11 @@ Rails.application.routes.draw do
     get page.url, to: "pages##{page.key}", as: page.key
   end
 
+  get "sitemap.xml", to: "seo#sitemap", defaults: { format: :xml }, as: :sitemap
+  get "robots.txt", to: "seo#robots", defaults: { format: :text }, as: :robots
+
+  # Error pages, rendered through config.exceptions_app.
+  match "/:status", to: "errors#show", via: :all, constraints: { status: /\d{3}/ }
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

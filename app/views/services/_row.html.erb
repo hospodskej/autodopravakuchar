@@ -1,7 +1,6 @@
 <article class="service-row">
   <%= photo_tag row.photo, class: "media-cover service-row__image" %>
   <div class="service-row__body">
-    <span class="service-number"><%= row.number %></span>
     <h2><%= row.title %></h2>
     <% if row.items.any? %>
       <ul class="check-list">

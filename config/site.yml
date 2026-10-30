@@ -2,6 +2,7 @@
 shared:
   company:
     name: Autodoprava Kuchař
+    website: https://adkuchar.cz
     owner: Zdeněk Kuchař
     ico: "19365969"
     register: Fyzická osoba zapsaná v živnostenském rejstříku.
@@ -17,6 +18,7 @@ shared:
     district: okres Znojmo
     region: Znojemsko
     availability: Nonstop – i o víkendech a svátcích
+    nonstop: true
     latitude: 48.8885776
     longitude: 16.1587815
     facebook: https://www.facebook.com/profile.php?id=61571976068084
@@ -24,37 +26,61 @@ shared:
 
   # Order defines the navigation. `path: ""` is the home page; `nav: false` hides a page from the header menu.
   pages:
+    # `title` is the visible heading; `meta_title` (optional) replaces it in the browser tab and search results.
+    # `description` is the text search engines and link previews show (aim for 120–160 characters).
     - key: home
       path: ""
       nav: false
       label: Úvod
       title: Dovoz, odvoz a zemní práce na Znojemsku
+      description: >-
+        Autodoprava Kuchař z Těšetic u Znojma – dovoz písku, štěrku a betonu do 6 t, přistavení kontejnerů,
+        přeprava techniky a práce bagrem. Volejte nonstop.
     - key: sluzby
       path: sluzby
       label: Služby
       title: Služby
+      meta_title: Služby – dovoz materiálu, kontejnery a bagr
       lead: Dovoz a odvoz materiálu, přeprava strojů a zemní práce – na Znojemsku a v okolí.
+      description: >-
+        Dovoz písku, štěrku, betonu a stavebního materiálu do 6 t, suťové i chodníkové kontejnery,
+        přeprava techniky, práce bagrem 3,5 t a palivové dřevo.
     - key: technika
       path: technika-a-vybaveni
       label: Technika
       title: Technika a vybavení
-      lead: Nákladní vozy MAN a Avia, kontejnery a minibagr. Kliknutím fotku zvětšíte.
+      meta_title: Technika – MAN, Praga V3S a bagr
+      lead: Nákladní vozy MAN, Praga V3S, kontejnery a bagr. Kliknutím fotku zvětšíte.
+      description: >-
+        Vozový park Autodopravy Kuchař: MAN TGL 12.180 (6,2 t), MAN 8.140 (4 t), Praga V3S do těžkého terénu
+        a bagr 3,5 t. Prohlédněte si fotky naší techniky.
     - key: cenik
       path: cenik
       label: Ceník
       title: Ceník
+      meta_title: Ceník dopravy, kontejnerů a palivového dřeva
       lead: Cena se odvíjí od druhu materiálu, množství a vzdálenosti. Rádi vám připravíme nabídku na míru.
+      description: >-
+        Ceník Autodopravy Kuchař – palivové dřevo, práce bagrem a doprava materiálu. Nabídku na dovoz
+        materiálu nebo přistavení kontejneru vám připravíme na míru.
     - key: kontakty
       path: kontakty
       label: Kontakty
       title: Kontakty
+      meta_title: Kontakt – Těšetice u Znojma
       lead: Zavolejte, napište, nebo se zastavte. Domluvíme se.
+      description: >-
+        Volejte nonstop na +420 739 291 053 nebo pište na info@adkuchar.cz. Autodoprava Kuchař,
+        Těšetice 39, 671 61, okres Znojmo.
     - key: soukromi
       path: zasady-ochrany-osobnich-udaju
       nav: false
       label: Ochrana osobních údajů
       title: Zásady ochrany osobních údajů
       lead: Jak na tomto webu a při spolupráci s námi zacházíme s vašimi osobními údaji.
+      description: >-
+        Jak Autodoprava Kuchař zpracovává osobní údaje zákazníků, jak dlouho je uchovává, jaké používá
+        cookies a jaká máte práva.
 
   services:
     - title: Dovoz
