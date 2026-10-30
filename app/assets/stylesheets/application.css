@@ -396,7 +396,7 @@ h3 { font-size: 1.5rem; }
 .review blockquote::before {
   content: "„";
   display: block;
-  height: 2rem;
+  height: 2.75rem;
   overflow: visible;
   font-family: var(--font-display);
   font-weight: 700;
