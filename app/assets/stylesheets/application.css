@@ -370,6 +370,29 @@ h3 { font-size: 1.5rem; }
 .split__image { box-shadow: 12px 12px 0 var(--green-600); }
 .split .muted { margin-bottom: 1.75rem; }
 
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+.review { display: flex; flex-direction: column; gap: 1rem; margin: 0; padding: 1.75rem 1.5rem 1.5rem; }
+.review blockquote { margin: 0; }
+.review blockquote::before {
+  content: "„";
+  display: block;
+  height: 2rem;
+  overflow: visible;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 4.5rem;
+  line-height: 0;
+  color: var(--green-600);
+}
+.review blockquote p { margin: 0; }
+.review figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem; font-size: 0.95rem; }
+.review__author { font-weight: 600; }
+
 /* ---------- Photos & lightbox ---------- */
 
 .photo-grid {

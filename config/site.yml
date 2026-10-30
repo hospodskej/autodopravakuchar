@@ -19,6 +19,7 @@ shared:
     latitude: 48.8885776
     longitude: 16.1587815
     facebook: https://www.facebook.com/profile.php?id=61571976068084
+    facebook_reviews: https://www.facebook.com/profile.php?id=61571976068084&sk=reviews
 
   # Order defines the navigation. `path: ""` is the home page; `nav: false` hides a page from the header menu.
   pages:
@@ -71,6 +72,29 @@ shared:
     - title: Palivové dřevo
       summary: Dovoz tvrdého palivového dřeva.
       photo: foto-21.webp
+
+  # Customer recommendations copied from the Facebook page (newest first). Surnames shortened to an initial.
+  reviews:
+    - author: Jitka Z.
+      date: červen 2026
+      text: Děkujeme za Vaše služby. Přesnost, ochota a skvělá komunikace to vše jen podtrhla.
+    - author: Daniel M.
+      date: květen 2026
+      text: >-
+        Spolupráce s Panem Kuchařem na základové desce probíhala perfektně, mladý šikovný Pán, co si rozumí
+        s bagrem i náklaďákem. Musím vyzdvihnout ochotu a spolehlivost. Děkujeme a těším se na další spolupráci.
+    - author: Ca Roll Ine
+      date: září 2025
+      text: >-
+        Můžu jen doporučit. Skvělá komunikace, ochota, co jsem chtěla přivezl rychle a cena také super.
+        Navíc jsem nic nemusela řešit dopředu se štěrkovnou, pán vše zařídil dovezl a já zaplatila.
+        Takže rozhodně doporučuji.
+    - author: Petra J.
+      date: květen 2025
+      text: Pana Kuchaře můžeme jen doporučit! Ochota, skvělá domluva, přesnost.
+    - author: Pavlína J.
+      date: květen 2025
+      text: Pana Kuchaře můžeme vřele doporučit, super komunikace a ochota. Vše na výbornou, děkujeme.
 
   # Vehicles and machines with their payload, shown on the Technika page.
   fleet:
