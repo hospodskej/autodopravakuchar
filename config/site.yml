@@ -16,6 +16,7 @@ shared:
     city: Těšetice
     district: okres Znojmo
     region: Znojemsko
+    availability: Nonstop – i o víkendech a svátcích
     latitude: 48.8885776
     longitude: 16.1587815
     facebook: https://www.facebook.com/profile.php?id=61571976068084
@@ -61,13 +62,15 @@ shared:
       items: [ Písku, Štěrku, Betonu, Veškerého stavebního materiálu do 6 t ]
       photo: foto-14.webp
     - title: Kontejnery a odvoz
-      summary: Přistavení kontejneru na odvoz suti, zeminy a dalších věcí.
+      summary: Přistavení suťových, velkoobjemových i užších chodníkových kontejnerů na odvoz suti a zeminy.
+      items: [ Suťové kontejnery, Velkoobjemové kontejnery, Užší (chodníkové) kontejnery do menších prostor ]
       photo: foto-08.webp
     - title: Přeprava
       summary: Stavební techniky do 6 t a vývoz dřeva z lesa vozem Praga V3S.
       photo: foto-19.webp
     - title: Práce bagrem
-      summary: Zemní práce bagrem 3,5 t dle dohody.
+      summary: Bagr 3,5 t – výkopy, rovnání terénu a bourací práce.
+      items: [ Výkopy, Rovnání terénu, Bourací práce ]
       photo: foto-07.webp
     - title: Palivové dřevo
       summary: Dovoz tvrdého palivového dřeva.

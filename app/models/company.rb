@@ -1,5 +1,5 @@
 class Company < Data.define(:name, :owner, :ico, :register, :tagline, :description, :phone, :email,
-                            :street, :postal_code, :city, :district, :region, :latitude, :longitude, :facebook, :facebook_reviews)
+                            :street, :postal_code, :city, :district, :region, :availability, :latitude, :longitude, :facebook, :facebook_reviews)
   def self.current
     @current ||= SiteContent.build(self, SiteContent.fetch(:company))
   end

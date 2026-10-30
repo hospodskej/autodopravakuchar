@@ -1,0 +1,4 @@
+<%# locals: (icon:, label:, css_class: nil, data: {}) %>
+<button type="button" class="icon-button <%= css_class %>" aria-label="<%= label %>" <%= tag.attributes(data: data) %>>
+  <%= render "shared/icon", name: icon %>
+</button>

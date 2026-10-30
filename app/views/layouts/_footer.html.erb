@@ -1,6 +1,7 @@
 <%
   contacts = [
     { icon: :phone, label: company.phone, url: company.phone_uri },
+    { icon: :clock, label: company.availability },
     { icon: :email, label: company.email, url: company.email_uri },
     { icon: :pin, label: company.address_lines.join(", "), url: company.map_url, external: true },
     { icon: :facebook, label: "Facebook", url: company.facebook, external: true },
@@ -19,7 +20,7 @@
       <p class="site-footer__company"><%= company.name %></p>
     </div>
 
-    <div>
+    <div class="site-footer__contact">
       <h2>Kontakt</h2>
       <ul class="footer-list">
         <% contacts.each do |contact| %>

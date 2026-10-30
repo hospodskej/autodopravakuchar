@@ -54,9 +54,7 @@
     <%= render "shared/section_heading", eyebrow: "#{Review.all.size} doporučení na Facebooku · 100 %",
                                          title: "Co říkají zákazníci",
                                          link: { label: "Všechny recenze", url: company.facebook_reviews } %>
-    <div class="review-grid">
-      <%= render partial: "reviews/review", collection: Review.all %>
-    </div>
+    <%= render "reviews/carousel" %>
   </div>
 </section>
 

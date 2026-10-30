@@ -2,7 +2,7 @@
 
 <%
   channels = [
-    { label: "Telefon", value: company.phone, url: company.phone_uri, action: "Zavolat" },
+    { label: "Telefon", value: company.phone, meta: company.availability, url: company.phone_uri, action: "Zavolat" },
     { label: "E-mail", value: company.email, url: company.email_uri, action: "Napsat" },
     { label: "Adresa", value: company.address_lines.join(", "), meta: company.district, url: company.map_url,
       action: "Otevřít v mapě", external: true },

@@ -43,7 +43,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select ".hero h1", /Dovezeme/
     assert_select ".service-card", Service.all.size
     assert_select ".photo-grid--strip img", GalleryPhoto.featured.size
-    assert_select ".review", Review.all.size
+    assert_select ".carousel .carousel__slide .review", Review.all.size
+    assert_select "script[src*=carousel]"
     assert_select "a[href='#{Company.current.facebook_reviews}']"
   end
 

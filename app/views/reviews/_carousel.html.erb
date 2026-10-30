@@ -1,0 +1,18 @@
+<% content_for :head, javascript_include_tag("carousel", defer: true) %>
+<div class="carousel" data-carousel data-interval="6000" role="region" aria-roledescription="karusel" aria-label="Recenze zákazníků">
+  <div class="carousel__track" data-carousel-track>
+    <% Review.all.each.with_index(1) do |review, index| %>
+      <div class="carousel__slide" role="group" aria-roledescription="snímek" aria-label="<%= index %> z <%= Review.all.size %>">
+        <%= render "reviews/review", review: %>
+      </div>
+    <% end %>
+  </div>
+  <div class="carousel__controls" data-carousel-controls hidden>
+    <%= render "shared/icon_button", icon: :prev, label: "Předchozí recenze", data: { carousel_prev: true } %>
+    <button type="button" class="icon-button" aria-label="Pozastavit otáčení" data-carousel-toggle>
+      <%= render "shared/icon", name: :pause, css_class: "icon--pause" %>
+      <%= render "shared/icon", name: :play, css_class: "icon--play" %>
+    </button>
+    <%= render "shared/icon_button", icon: :next, label: "Další recenze", data: { carousel_next: true } %>
+  </div>
+</div>
