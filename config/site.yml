@@ -5,10 +5,10 @@ shared:
     owner: Zdeněk Kuchař
     ico: "19365969"
     register: Fyzická osoba zapsaná v živnostenském rejstříku.
-    tagline: Dovoz a odvoz materiálu, přeprava strojů a práce bagrem na Znojemsku.
+    tagline: Dovoz a odvoz materiálu, kontejnery, přeprava strojů a práce bagrem na Znojemsku.
     description: >-
-      Autodoprava Kuchař z Těšetic u Znojma – dovoz písku, štěrku, betonu a stavebního materiálu,
-      odvoz suti a zeminy, přeprava strojů do 3,5 t a práce bagrem.
+      Autodoprava Kuchař z Těšetic u Znojma – dovoz písku, štěrku, betonu a stavebního materiálu do 6 t,
+      přistavení kontejnerů, přeprava stavební techniky, palivové dřevo a práce bagrem.
     phone: "+420 739 291 053"
     email: info@adkuchar.cz
     street: Těšetice 39
@@ -16,6 +16,9 @@ shared:
     city: Těšetice
     district: okres Znojmo
     region: Znojemsko
+    latitude: 48.8885776
+    longitude: 16.1587815
+    facebook: https://www.facebook.com/profile.php?id=61571976068084
 
   # Order defines the navigation. `path: ""` is the home page; `nav: false` hides a page from the header menu.
   pages:
@@ -53,18 +56,28 @@ shared:
 
   services:
     - title: Dovoz
-      summary: Písku, štěrku, betonu a veškerého stavebního materiálu.
-      items: [ Písku, Štěrku, Betonu, Veškerého stavebního materiálu ]
+      summary: Písku, štěrku, betonu a veškerého stavebního materiálu do 6 t.
+      items: [ Písku, Štěrku, Betonu, Veškerého stavebního materiálu do 6 t ]
       photo: foto-14.webp
-    - title: Odvoz
-      summary: Suti, zeminy a dalších věcí.
+    - title: Kontejnery a odvoz
+      summary: Přistavení kontejneru na odvoz suti, zeminy a dalších věcí.
       photo: foto-08.webp
     - title: Přeprava
-      summary: Stavebních strojů do 3,5 t, přeprava dřeva a další.
+      summary: Stavební techniky do 6 t a vývoz dřeva z lesa vozem Praga V3S.
       photo: foto-19.webp
     - title: Práce bagrem
-      summary: Výkopy a zemní práce dle dohody.
+      summary: Zemní práce bagrem 3,5 t dle dohody.
       photo: foto-07.webp
+    - title: Palivové dřevo
+      summary: Dovoz tvrdého palivového dřeva.
+      photo: foto-21.webp
+
+  # Vehicles and machines with their payload, shown on the Technika page.
+  fleet:
+    - { name: "MAN TGL 12.180", detail: "Nosnost 6,2 t" }
+    - { name: "MAN 8.140", detail: "Nosnost 4 t" }
+    - { name: "Praga V3S", detail: "Do těžkého terénu" }
+    - { name: "Bagr", detail: "Hmotnost 3,5 t" }
 
   # Photos grouped by vehicle. Files live in app/assets/images/technika (full size)
   # and technika/nahled (800px thumbnails). `featured` photos appear on the home page.

@@ -3,6 +3,7 @@
     { icon: :phone, label: company.phone, url: company.phone_uri },
     { icon: :email, label: company.email, url: company.email_uri },
     { icon: :pin, label: company.address_lines.join(", "), url: company.map_url, external: true },
+    { icon: :facebook, label: "Facebook", url: company.facebook, external: true },
     { icon: :id, label: "IČO #{company.ico}" }
   ]
   columns = {
@@ -51,7 +52,10 @@
   </div>
 
   <div class="container">
-    <nav class="site-footer__nav" aria-label="Patička"><%= nav_links SitePage.all %></nav>
+    <nav class="site-footer__nav" aria-label="Patička">
+      <%= nav_links SitePage.all %>
+      <%= link_to "Cookies", "#{page_url(:soukromi)}#cookies", class: "nav-link" %>
+    </nav>
 
     <%= render "shared/map" %>
   </div>

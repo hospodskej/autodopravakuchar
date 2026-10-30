@@ -1,5 +1,22 @@
 <%= render "shared/page_header" %>
 
+<section class="section section--compact">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Vozový park</p>
+      <h2>Čím jezdíme</h2>
+    </div>
+    <ul class="card-grid">
+      <% FleetVehicle.all.each do |vehicle| %>
+        <li class="card card--accent fleet-card">
+          <h3><%= vehicle.name %></h3>
+          <p class="muted"><%= vehicle.detail %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>
+
 <nav class="chip-nav container" aria-label="Kategorie techniky">
   <% GalleryCategory.all.each do |category| %>
     <%= link_to "#{category.title} (#{category.photos.size})", "##{category.key}", class: "chip" %>

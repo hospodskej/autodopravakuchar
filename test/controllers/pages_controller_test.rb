@@ -13,12 +13,18 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "footer map loads Google only on request and links to the privacy policy" do
+  test "footer has a cookie-free OpenStreetMap map and links to Facebook and the privacy policy" do
     get home_url
-    assert_select ".site-footer .map[data-src*='maps.google.com'] button[data-map-load]"
-    assert_select "iframe", false
-    assert_select ".site-footer a[href='#{page_url(:soukromi)}']"
+    assert_select ".site-footer .map iframe[src^='https://www.openstreetmap.org/export/embed.html']"
+    assert_select "iframe[src*='google']", false
+    assert_select ".site-footer a[href='#{Company.current.facebook}']"
+    assert_select ".site-footer a[href='#{page_url(:soukromi)}#cookies']", "Cookies"
     assert_select ".site-footer .footer-list a", minimum: Service.all.size + GalleryCategory.all.size
+  end
+
+  test "equipment page lists the fleet" do
+    get technika_url
+    assert_select ".fleet-card h3", FleetVehicle.all.size
   end
 
   test "privacy policy names the controller" do

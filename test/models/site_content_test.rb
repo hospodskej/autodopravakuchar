@@ -6,7 +6,7 @@ class SiteContentTest < ActiveSupport::TestCase
   end
 
   test "services are numbered in order" do
-    assert_equal %w[01 02 03 04], Service.all.map(&:number)
+    assert_equal (1..Service.all.size).map { |n| format("%02d", n) }, Service.all.map(&:number)
   end
 
   test "home page is not in the header navigation" do

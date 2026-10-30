@@ -1,5 +1,5 @@
 class Company < Data.define(:name, :owner, :ico, :register, :tagline, :description, :phone, :email,
-                            :street, :postal_code, :city, :district, :region)
+                            :street, :postal_code, :city, :district, :region, :latitude, :longitude, :facebook)
   def self.current
     @current ||= SiteContent.build(self, SiteContent.fetch(:company))
   end
@@ -24,8 +24,10 @@ class Company < Data.define(:name, :owner, :ico, :register, :tagline, :descripti
     "https://www.google.com/maps/search/?api=1&query=#{map_query}"
   end
 
-  def map_embed_url
-    "https://maps.google.com/maps?q=#{map_query}&z=14&hl=cs&output=embed"
+  # OpenStreetMap embed: loads without cookies, so no consent banner is needed.
+  def map_embed_url(span: 0.006)
+    bbox = [ longitude - span * 2, latitude - span, longitude + span * 2, latitude + span ].join(",")
+    "https://www.openstreetmap.org/export/embed.html?bbox=#{bbox}&layer=mapnik&marker=#{latitude},#{longitude}"
   end
 
   private
