@@ -71,7 +71,7 @@ a:hover { color: var(--green-600); }
 /* Every piece of condensed, uppercase "truck lettering" shares one definition. */
 h1, h2, h3,
 .eyebrow, .label, .button, .nav-link, .chip, .text-link, .service-number,
-.brand__small, .brand__name, .site-footer__brand, .contact-card__value, .price-table th {
+.brand__small, .brand__name, .site-footer__owner, .site-footer__company, .contact-card__value, .price-table th {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -504,29 +504,67 @@ h3 { font-size: 1.5rem; }
 .site-footer { background: var(--green-950); color: rgb(255 255 255 / 0.75); font-size: 1rem; }
 .site-footer a { color: var(--white); }
 .site-footer a:hover { color: #cfe3cf; }
+.site-footer h2 { margin-bottom: 1rem; font-size: 1rem; letter-spacing: 0.14em; color: rgb(255 255 255 / 0.55); }
+
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1.4fr repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: 1.2fr 1.4fr 1fr 1fr;
+  gap: 2.5rem;
   padding-top: 3.5rem;
   padding-bottom: 2.5rem;
 }
-.site-footer h2 { margin-bottom: 0.75rem; font-size: 1rem; letter-spacing: 0.14em; color: rgb(255 255 255 / 0.55); }
-.site-footer__brand { margin-bottom: 0.5rem; font-size: 1.6rem; color: var(--white); }
-.site-footer__nav { display: flex; flex-direction: column; align-items: flex-start; }
-.site-footer__nav .nav-link { padding: 0.15rem 0; font-family: var(--font-body); font-size: 1rem; letter-spacing: 0; line-height: 1.6; text-transform: none; text-decoration: underline; color: var(--white); }
-.site-footer__nav .nav-link::after { display: none; }
+.site-footer__brand { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.site-footer__brand p { margin: 0; }
+.site-footer__brand a { text-decoration: none; }
+.site-footer__owner { font-size: 1.75rem; font-weight: 700; color: var(--white); }
+.site-footer__company { margin-top: -0.75rem !important; font-size: 1rem; letter-spacing: 0.14em; color: var(--red-100); }
+
+.footer-list { display: grid; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
+.footer-list__item--icon { display: flex; align-items: flex-start; gap: 0.65rem; }
+.footer-list .icon { flex: none; width: 20px; height: 20px; margin-top: 0.15rem; stroke-width: 1.75; color: var(--green-600); filter: brightness(1.6); }
+
+.site-footer__nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; padding: 1.5rem 0; border-top: 1px solid rgb(255 255 255 / 0.12); }
+.site-footer__nav .nav-link { padding: 0; font-size: 1rem; color: var(--white); }
+.site-footer__nav .nav-link::after { left: 0; right: 0; bottom: -0.15rem; height: 2px; }
+
+.map {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: clamp(240px, 30vw, 340px);
+  overflow: hidden;
+  border-radius: var(--radius);
+  border-top: var(--accent-width) solid var(--green-600);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, rgb(255 255 255 / 0.05) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgb(255 255 255 / 0.05) 39px 40px),
+    var(--green-900);
+}
+.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.map__placeholder { display: grid; justify-items: center; gap: 0.75rem; padding: 1.5rem; text-align: center; }
+.map__placeholder .icon { width: 40px; height: 40px; color: var(--red-100); }
+.map__placeholder p { max-width: 28rem; margin: 0; font-size: 0.95rem; color: rgb(255 255 255 / 0.7); }
+.map__placeholder p a { text-decoration: underline; }
+.map.is-loaded .map__placeholder { display: none; }
+
 .site-footer__bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.5rem 2rem;
-  padding-top: 1.25rem;
+  padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  border-top: 1px solid rgb(255 255 255 / 0.12);
-  font-size: 0.9rem;
 }
-.site-footer__bottom p, .site-footer .legal-info { margin: 0; font-size: 0.9rem; color: rgb(255 255 255 / 0.6); }
+.site-footer__bottom p, .site-footer .legal-info { margin: 0; font-size: 0.9rem; color: rgb(255 255 255 / 0.55); }
+
+/* ---------- Prose (legal pages) ---------- */
+
+.prose { max-width: 46rem; }
+.prose h2 { margin-top: 2.5rem; font-size: 1.6rem; }
+.prose h2:first-child { margin-top: 0; }
+.prose ul { padding-left: 1.25rem; }
+.prose li { margin-bottom: 0.35rem; }
+.prose li::marker { color: var(--green-600); }
 
 /* ---------- Responsive ---------- */
 
@@ -536,7 +574,7 @@ h3 { font-size: 1.5rem; }
   .service-row:nth-child(even) .service-row__image { order: 0; }
   .photo-grid--strip { grid-template-columns: repeat(2, 1fr); }
   .site-footer__grid { grid-template-columns: 1fr 1fr; }
-  .site-footer__grid > :first-child { grid-column: 1 / -1; }
+  .site-footer__grid > :nth-child(-n+2) { grid-column: 1 / -1; }
   .lightbox__stage { padding-bottom: 80px; }
   .lightbox__image { max-height: calc(100dvh - 190px); }
   .lightbox__button--prev, .lightbox__button--next { top: auto; bottom: 16px; transform: none; }

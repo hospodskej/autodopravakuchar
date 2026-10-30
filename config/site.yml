@@ -44,6 +44,12 @@ shared:
       label: Kontakty
       title: Kontakty
       lead: Zavolejte, napište, nebo se zastavte. Domluvíme se.
+    - key: soukromi
+      path: zasady-ochrany-osobnich-udaju
+      nav: false
+      label: Ochrana osobních údajů
+      title: Zásady ochrany osobních údajů
+      lead: Jak na tomto webu a při spolupráci s námi zacházíme s vašimi osobními údaji.
 
   services:
     - title: Dovoz

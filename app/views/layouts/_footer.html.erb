@@ -1,23 +1,61 @@
+<%
+  contacts = [
+    { icon: :phone, label: company.phone, url: company.phone_uri },
+    { icon: :email, label: company.email, url: company.email_uri },
+    { icon: :pin, label: company.address_lines.join(", "), url: company.map_url, external: true },
+    { icon: :id, label: "IČO #{company.ico}" }
+  ]
+  columns = {
+    "Služby" => Service.all.map { |service| [ service.title, page_url(:sluzby) ] },
+    "Technika" => GalleryCategory.all.map { |category| [ category.title, "#{page_url(:technika)}##{category.key}" ] }
+  }
+%>
 <footer class="site-footer">
   <div class="hazard-stripe" aria-hidden="true"></div>
+
   <div class="container site-footer__grid">
-    <div>
-      <p class="site-footer__brand"><%= company.name %></p>
-      <p><%= company.tagline %></p>
+    <div class="site-footer__brand">
+      <%= link_to page_url(:home), aria: { label: "#{company.name} – úvod" } do %>
+        <%= render "shared/brand_mark" %>
+      <% end %>
+      <p class="site-footer__owner"><%= company.owner %></p>
+      <p class="site-footer__company"><%= company.name %></p>
     </div>
+
     <div>
       <h2>Kontakt</h2>
-      <p><%= phone_link %><br><%= email_link %></p>
+      <ul class="footer-list">
+        <% contacts.each do |contact| %>
+          <li class="footer-list__item--icon">
+            <%= render "shared/icon", name: contact[:icon] %>
+            <% if contact[:url] %>
+              <%= link_to contact[:label], contact[:url], **(contact[:external] ? { target: "_blank", rel: "noopener" } : {}) %>
+            <% else %>
+              <span><%= contact[:label] %></span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-    <div>
-      <h2>Adresa</h2>
-      <p><%= address_link { safe_join(company.address_lines, tag.br) } %><br><%= company.district %></p>
-    </div>
-    <div>
-      <h2>Stránky</h2>
-      <nav class="site-footer__nav" aria-label="Patička"><%= nav_links SitePage.all %></nav>
-    </div>
+
+    <% columns.each do |heading, links| %>
+      <div>
+        <h2><%= heading %></h2>
+        <ul class="footer-list">
+          <% links.each do |label, url| %>
+            <li><%= link_to label, url %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
+
+  <div class="container">
+    <nav class="site-footer__nav" aria-label="Patička"><%= nav_links SitePage.all %></nav>
+
+    <%= render "shared/map" %>
+  </div>
+
   <div class="container site-footer__bottom">
     <p>© <%= Date.current.year %> <%= company.name %></p>
     <%= render "shared/legal_info" %>

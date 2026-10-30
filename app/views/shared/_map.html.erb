@@ -1,0 +1,9 @@
+<div class="map" data-src="<%= company.map_embed_url %>" data-title="Mapa – <%= company.address_lines.join(", ") %>">
+  <div class="map__placeholder">
+    <%= render "shared/icon", name: :pin %>
+    <button type="button" class="button button--light" data-map-load>Zobrazit mapu</button>
+    <p>Mapa se načte ze služby Google Maps, která může ukládat cookies.
+      Více v <%= link_to "zásadách ochrany osobních údajů", page_url(:soukromi) %>.
+      Nebo <%= address_link { "otevřete adresu v Mapách Google" } %>.</p>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<%= render "shared/page_header" %>
+
+<section class="section">
+  <div class="container prose">
+    <h2>Správce osobních údajů</h2>
+    <p>
+      Správcem osobních údajů je <strong><%= company.owner %></strong>, IČO <%= company.ico %>,
+      se sídlem <%= company.address_lines.join(", ") %> (dále jen „správce“).
+      <%= company.register %>
+    </p>
+    <p>
+      V záležitostech ochrany osobních údajů nás kontaktujte na e-mailu <%= email_link %>
+      nebo na telefonu <%= phone_link %>.
+    </p>
+
+    <h2>Jaké údaje zpracováváme</h2>
+    <ul>
+      <li><strong>Identifikační a kontaktní údaje</strong> – jméno, příjmení, telefon, e-mail, adresa, u podnikatelů IČO a DIČ.</li>
+      <li><strong>Údaje o zakázce</strong> – místo dovozu či odvozu, druh a množství materiálu, termín, cena.</li>
+      <li><strong>Fakturační a platební údaje</strong> – údaje na daňových dokladech, informace o platbě.</li>
+      <li><strong>Technické údaje</strong> – IP adresa, čas přístupu a typ prohlížeče v záznamech serveru.</li>
+    </ul>
+    <p>Na webu nejsou žádné formuláře ani analytické či reklamní nástroje. Údaje od vás získáváme, jen když nás sami kontaktujete.</p>
+
+    <h2>Proč a na jakém základě</h2>
+    <ul>
+      <li><strong>Vyřízení poptávky a plnění smlouvy</strong> (čl. 6 odst. 1 písm. b) GDPR) – abychom vám mohli připravit nabídku, domluvit termín a zakázku provést.</li>
+      <li><strong>Plnění právních povinností</strong> (čl. 6 odst. 1 písm. c) GDPR) – vedení účetnictví a daňové evidence.</li>
+      <li><strong>Oprávněný zájem</strong> (čl. 6 odst. 1 písm. f) GDPR) – ochrana našich právních nároků a zabezpečení webu.</li>
+    </ul>
+
+    <h2>Jak dlouho údaje uchováváme</h2>
+    <ul>
+      <li>Poptávky, ze kterých nevznikla zakázka, nejdéle 1 rok.</li>
+      <li>Údaje k provedeným zakázkám po dobu trvání smluvního vztahu a dále po dobu promlčecích lhůt.</li>
+      <li>Účetní a daňové doklady po dobu stanovenou právními předpisy (zpravidla 5–10 let).</li>
+      <li>Záznamy serveru po dobu nezbytně nutnou pro zabezpečení webu.</li>
+    </ul>
+
+    <h2>Komu údaje předáváme</h2>
+    <p>
+      Osobní údaje neprodáváme ani nepředáváme pro marketingové účely. Přístup k nim mohou mít pouze
+      zpracovatelé, kteří nám pomáhají s provozem – účetní či daňový poradce a poskytovatel hostingu webu –
+      a orgány veřejné moci, pokud to vyžaduje zákon.
+    </p>
+
+    <h2>Cookies a služby třetích stran</h2>
+    <p>
+      Web používá pouze technicky nezbytnou cookie, která slouží k zabezpečení webu. K jejímu použití
+      souhlas nepotřebujeme. Písma i fotografie jsou uložena přímo na našem serveru.
+    </p>
+    <p>
+      Mapa v patičce se z <strong>Google Maps</strong> (Google Ireland Limited) načte až poté, co kliknete na
+      „Zobrazit mapu“. Teprve tehdy Google získá vaši IP adresu a může ukládat vlastní cookies podle svých
+      <%= link_to "zásad ochrany soukromí", "https://policies.google.com/privacy?hl=cs", target: "_blank", rel: "noopener" %>.
+      Údaje mohou být předány do USA v rámci rámce EU–USA pro ochranu osobních údajů (Data Privacy Framework).
+    </p>
+
+    <h2>Vaše práva</h2>
+    <p>V souvislosti se zpracováním osobních údajů máte právo:</p>
+    <ul>
+      <li>na přístup ke svým osobním údajům,</li>
+      <li>na opravu nepřesných údajů,</li>
+      <li>na výmaz, pokud pro zpracování již není důvod,</li>
+      <li>na omezení zpracování,</li>
+      <li>na přenositelnost údajů,</li>
+      <li>vznést námitku proti zpracování založenému na oprávněném zájmu.</li>
+    </ul>
+    <p>
+      Svá práva můžete uplatnit na kontaktech uvedených výše. Máte také právo podat stížnost u
+      <%= link_to "Úřadu pro ochranu osobních údajů", "https://uoou.gov.cz", target: "_blank", rel: "noopener" %>,
+      Pplk. Sochora 27, 170 00 Praha 7.
+    </p>
+
+    <h2>Závěrečná ustanovení</h2>
+    <p>
+      K automatizovanému rozhodování ani profilování nedochází.
+      Tyto zásady jsou účinné od 30. 10. 2026.
+    </p>
+  </div>
+</section>

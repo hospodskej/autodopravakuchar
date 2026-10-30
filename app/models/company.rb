@@ -16,7 +16,20 @@ class Company < Data.define(:name, :owner, :ico, :register, :tagline, :descripti
     [ street, "#{postal_code} #{city}" ]
   end
 
-  def map_url
-    "https://www.google.com/maps/search/?api=1&query=#{ERB::Util.url_encode(address_lines.join(", "))}"
+  def initials
+    name.split.map(&:first).join
   end
+
+  def map_url
+    "https://www.google.com/maps/search/?api=1&query=#{map_query}"
+  end
+
+  def map_embed_url
+    "https://maps.google.com/maps?q=#{map_query}&z=14&hl=cs&output=embed"
+  end
+
+  private
+    def map_query
+      ERB::Util.url_encode(address_lines.join(", "))
+    end
 end

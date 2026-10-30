@@ -1,3 +1,13 @@
 <%# locals: (name:) %>
-<% paths = { close: "M6 6l12 12M18 6L6 18", prev: "M15 5l-7 7 7 7", next: "M9 5l7 7-7 7" } %>
+<%
+  paths = {
+    close: "M6 6l12 12M18 6L6 18",
+    prev: "M15 5l-7 7 7 7",
+    next: "M9 5l7 7-7 7",
+    phone: "M8 2.5h8a1 1 0 0 1 1 1v17a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-17a1 1 0 0 1 1-1zM11 18.5h2",
+    email: "M3.5 5.5h17v13h-17zM3.5 6.5l8.5 6.5 8.5-6.5",
+    pin: "M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
+    id: "M3.5 5.5h17v13h-17zM7 10h5M7 14h7M15.5 10h1.5"
+  }
+%>
 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="<%= paths.fetch(name) %>" /></svg>

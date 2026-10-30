@@ -1,6 +1,8 @@
 require "test_helper"
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
+  include ApplicationHelper
+
   test "every page in config/site.yml renders with its title and the shared layout" do
     SitePage.all.each do |page|
       get page.url
@@ -9,6 +11,20 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       assert_select ".site-nav a", SitePage.navigation.size
       assert_select ".site-footer .legal-info", /IČO #{Company.current.ico}/
     end
+  end
+
+  test "footer map loads Google only on request and links to the privacy policy" do
+    get home_url
+    assert_select ".site-footer .map[data-src*='maps.google.com'] button[data-map-load]"
+    assert_select "iframe", false
+    assert_select ".site-footer a[href='#{page_url(:soukromi)}']"
+    assert_select ".site-footer .footer-list a", minimum: Service.all.size + GalleryCategory.all.size
+  end
+
+  test "privacy policy names the controller" do
+    get soukromi_url
+    assert_select "h1", "Zásady ochrany osobních údajů"
+    assert_select ".prose", /IČO #{Company.current.ico}/
   end
 
   test "navigation marks the current page" do

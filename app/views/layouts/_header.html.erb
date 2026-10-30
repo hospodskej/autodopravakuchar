@@ -2,7 +2,7 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <%= link_to page_url(:home), class: "brand", aria: { label: "#{company.name} – úvod" } do %>
-      <span class="brand__mark" aria-hidden="true"><%= company.name.split.map(&:first).join %></span>
+      <%= render "shared/brand_mark" %>
       <span class="brand__text">
         <span class="brand__small"><%= brand_prefix %></span>
         <span class="brand__name"><%= brand_name %></span>
