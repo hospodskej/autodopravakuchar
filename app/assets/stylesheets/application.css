@@ -232,7 +232,7 @@ h3 { font-size: 1.5rem; }
 
 .mobile-nav, .site-header__inner .site-header__call { display: none; }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   .site-nav, .site-header__cta { display: none; }
   .site-header__inner { min-height: 64px; }
 
@@ -601,6 +601,37 @@ h3 { font-size: 1.5rem; }
   padding-bottom: 1.5rem;
 }
 .site-footer__bottom p, .site-footer .legal-info { margin: 0; font-size: 0.9rem; color: rgb(255 255 255 / 0.55); }
+
+/* ---------- Forms & messages ---------- */
+
+.flash { margin: 0 0 1.5rem; padding: 1rem 1.25rem; border-radius: var(--radius); border-left: var(--accent-width) solid; font-weight: 500; }
+.flash p { margin: 0; }
+.flash ul { margin: 0.5rem 0 0; padding-left: 1.25rem; font-weight: 400; }
+.flash--success { background: #e3efe3; border-color: var(--green-600); color: var(--green-900); }
+.flash--error { background: #f8e3e0; border-color: var(--red-600); color: #6d1f17; }
+
+.inquiry-form { padding: clamp(1.5rem, 4vw, 2.5rem); }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 0 1.25rem; }
+.field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.25rem; }
+.field label { font-weight: 600; }
+.field__required { color: var(--red-600); }
+.field__hint { order: 2; margin: 0; font-size: 0.9rem; color: var(--muted); }
+.field input, .field select, .field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid #b9b1a0;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+.field textarea { resize: vertical; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--blue-700); outline-offset: 1px; border-color: var(--blue-700); }
+.field--error input, .field--error select, .field--error textarea { border-color: var(--red-600); }
+.field__error { order: 3; margin: 0; font-size: 0.95rem; font-weight: 600; color: #a1271b; }
+.field--trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form-note { font-size: 0.95rem; }
 
 /* ---------- 404 ---------- */
 

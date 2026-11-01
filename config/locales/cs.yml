@@ -1,0 +1,18 @@
+cs:
+  activemodel:
+    attributes:
+      inquiry:
+        name: Jméno
+        phone: Telefon
+        email: E-mail
+        service: Služba
+        place: Místo
+        date: Termín
+        message: Podrobnosti
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank: musí být vyplněno
+      invalid: nemá správný formát
+      inclusion: musí být vybrána ze seznamu
+      too_long: je příliš dlouhé (nejvýše %{count} znaků)

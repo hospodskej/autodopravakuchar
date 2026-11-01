@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     get page.url, to: "pages##{page.key}", as: page.key
   end
 
+  post SitePage.find_by!(key: "poptavka").url, to: "inquiries#create", as: :inquiries
+
   get "sitemap.xml", to: "seo#sitemap", defaults: { format: :xml }, as: :sitemap
   get "robots.txt", to: "seo#robots", defaults: { format: :text }, as: :robots
 

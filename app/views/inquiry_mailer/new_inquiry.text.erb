@@ -1,0 +1,14 @@
+Nová poptávka z webu <%= Company.current.website %>
+
+Jméno:          <%= @inquiry.name %>
+Telefon:        <%= @inquiry.phone %>
+E-mail:         <%= @inquiry.email.presence || "neuveden" %>
+Služba:         <%= @inquiry.service %>
+Místo:          <%= @inquiry.place %>
+Termín:         <%= @inquiry.date.presence || "neuveden" %>
+
+Zpráva:
+<%= @inquiry.message %>
+
+--
+<% if @inquiry.email.present? %>Odpověď na tento e-mail půjde přímo zákazníkovi.<% else %>Zákazník nezadal e-mail – ozvěte se mu na telefon.<% end %>

@@ -2,6 +2,10 @@
 class PagesController < ApplicationController
   before_action { @page = SitePage.find_by!(key: action_name) }
 
+  def poptavka
+    @inquiry = Inquiry.new(service: Inquiry.services.include?(params[:sluzba]) ? params[:sluzba] : nil)
+  end
+
   def cenik
     @price_groups = PriceItem.ordered.group_by(&:category)
   end

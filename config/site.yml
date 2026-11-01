@@ -63,6 +63,15 @@ shared:
       description: >-
         Ceník Autodopravy Kuchař – palivové dřevo, práce bagrem a doprava materiálu. Nabídku na dovoz
         materiálu nebo přistavení kontejneru vám připravíme na míru.
+    - key: poptavka
+      path: poptavka
+      label: Poptávka
+      title: Nezávazná poptávka
+      meta_title: Poptávka – doprava, kontejner, bagr
+      lead: Napište, co potřebujete přivézt, odvézt nebo vykopat. Ozveme se vám s termínem a cenou.
+      description: >-
+        Nezávazná poptávka dovozu materiálu, přistavení kontejneru, přepravy techniky nebo práce bagrem
+        na Znojemsku. Vyplňte krátký formulář a ozveme se vám.
     - key: kontakty
       path: kontakty
       label: Kontakty
