@@ -13,9 +13,7 @@
 
   <div class="container site-footer__grid">
     <div class="site-footer__brand">
-      <%= link_to page_url(:home), aria: { label: "#{company.name} – úvod" } do %>
-        <%= render "shared/brand_mark" %>
-      <% end %>
+      <%= render "shared/brand_mark" %>
       <p class="site-footer__owner"><%= company.owner %></p>
       <p class="site-footer__company"><%= company.name %></p>
     </div>

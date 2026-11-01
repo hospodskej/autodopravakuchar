@@ -26,10 +26,12 @@ module ApplicationHelper
     link_to company.map_url, target: "_blank", rel: "noopener", **options, &block
   end
 
-  # `responsive: true` lets the browser pick the 800px thumbnail or the 1600px original by screen width.
-  def photo_tag(photo, full: false, responsive: false, **options)
-    options[:srcset] = { photo.thumbnail_path => "800w", photo.path => "1600w" } if responsive
-    image_tag (full || responsive ? photo.path : photo.thumbnail_path), alt: photo.alt, loading: "lazy", decoding: "async", **options
+  # Every photo comes in 480px, 800px and (for `full: true`) 1600px; the browser picks one by `sizes`.
+  # The default `sizes` fits the photo grids: one column on phones, two on tablets, about 400px on desktop.
+  def photo_tag(photo, full: false, sizes: "(max-width: 600px) 100vw, (max-width: 1023px) 50vw, 400px", **options)
+    srcset = { photo.small_path => "480w", photo.thumbnail_path => "800w" }
+    srcset[photo.path] = "1600w" if full
+    image_tag (full ? photo.path : photo.thumbnail_path), srcset:, sizes:, alt: photo.alt, loading: "lazy", decoding: "async", **options
   end
 
   def format_price(item)

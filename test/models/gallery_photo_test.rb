@@ -7,6 +7,7 @@ class GalleryPhotoTest < ActiveSupport::TestCase
       assert_equal ".webp", File.extname(photo.file)
       assert images.join(photo.path).file?, "missing #{photo.path}"
       assert images.join(photo.thumbnail_path).file?, "missing #{photo.thumbnail_path}"
+      assert images.join(photo.small_path).file?, "missing #{photo.small_path}"
       assert photo.alt.present?
     end
   end

@@ -1,6 +1,6 @@
 <% content_for :head, javascript_include_tag("carousel", defer: true) %>
 <div class="carousel" data-carousel data-interval="6000" role="region" aria-roledescription="karusel" aria-label="Recenze zákazníků">
-  <div class="carousel__track" data-carousel-track>
+  <div class="carousel__track" data-carousel-track tabindex="0" aria-label="Recenze – posouvejte šipkami">
     <% Review.all.each.with_index(1) do |review, index| %>
       <div class="carousel__slide" role="group" aria-roledescription="snímek" aria-label="<%= index %> z <%= Review.all.size %>">
         <%= render "reviews/review", review: %>

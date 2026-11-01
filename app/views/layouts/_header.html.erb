@@ -1,7 +1,7 @@
 <% brand_prefix, _, brand_name = company.name.rpartition(" ") %>
 <header class="site-header">
   <div class="container site-header__inner">
-    <%= link_to page_url(:home), class: "brand", aria: { label: "#{company.name} – úvod" } do %>
+    <%= link_to page_url(:home), class: "brand" do %>
       <%= render "shared/brand_mark" %>
       <span class="brand__text">
         <span class="brand__small"><%= brand_prefix %></span>

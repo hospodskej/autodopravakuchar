@@ -43,6 +43,9 @@ module Autodopravakuchar
     # Single source of truth for company details, pages, services and the photo gallery.
     config.x.site = config_for(:site)
 
+    # Compress HTML, CSS, JS and other text responses (also helps when the host does not compress).
+    config.middleware.insert 0, Rack::Deflater
+
     # Serve error pages (404 with the site layout) from ErrorsController.
     config.exceptions_app = routes
 

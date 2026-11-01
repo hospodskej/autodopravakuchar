@@ -14,6 +14,10 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="apple-touch-icon" href="/icon.png">
 
+    <%# Preload the two most used fonts so text does not shift when they arrive. %>
+    <% %w[barlow-400.woff2 barlow-condensed-700.woff2].each do |font| %>
+      <link rel="preload" href="<%= font_path(font) %>" as="font" type="font/woff2" crossorigin>
+    <% end %>
     <%= stylesheet_link_tag :app %>
     <%= javascript_include_tag "menu", defer: true %>
   </head>

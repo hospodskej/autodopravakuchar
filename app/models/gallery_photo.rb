@@ -16,4 +16,8 @@ class GalleryPhoto < Data.define(:file, :alt, :featured, :category)
   def thumbnail_path
     "technika/nahled/#{file}"
   end
+
+  def small_path
+    "technika/male/#{file}"
+  end
 end

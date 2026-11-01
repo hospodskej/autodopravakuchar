@@ -389,6 +389,7 @@ h3 { font-size: 1.5rem; }
   position: relative;
 }
 .carousel__track::-webkit-scrollbar { display: none; }
+.carousel__track:focus-visible { outline: 3px solid var(--blue-700); outline-offset: 4px; border-radius: var(--radius); }
 .carousel__slide { display: flex; scroll-snap-align: start; }
 .carousel__slide .review { flex: 1; }
 .carousel__controls { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.25rem; }
@@ -569,7 +570,6 @@ h3 { font-size: 1.5rem; }
 .site-footer__contact .footer-list__item--icon { justify-content: flex-end; }
 .site-footer__brand { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
 .site-footer__brand p { margin: 0; }
-.site-footer__brand a { text-decoration: none; }
 .site-footer__owner { font-size: 1.75rem; font-weight: 700; color: var(--white); }
 .site-footer__company { margin-top: -0.75rem !important; font-size: 1rem; letter-spacing: 0.14em; color: var(--red-100); }
 

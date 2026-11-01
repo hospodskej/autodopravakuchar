@@ -16,6 +16,11 @@ bin/rails test
 
 - **Domain.** Canonical URLs, the sitemap, `robots.txt`, link previews and the Google business data all use
   `website:` in `config/site.yml` (currently `https://adkuchar.cz`). Change it if the site runs on another address.
+- **E-mail for the poptávka form.** The form sends requests to the `email:` in `config/site.yml` through SMTP.
+  Set `SMTP_ADDRESS`, `SMTP_USERNAME`, `SMTP_PASSWORD` (and `SMTP_PORT` if not 587) on the server, using the
+  mailbox provider's settings for info@adkuchar.cz. Then send a test request. In development the e-mails are
+  saved to `tmp/mails` instead of being sent.
+- **Hosting.** The form needs a running Rails server, so the site cannot be hosted as static files (e.g. GitHub Pages).
 - **Prices.** The price list lives in the database. Run `bin/rails db:seed` on the server, otherwise `/cenik` is empty.
 - **Google Search Console.** After launch, add the site at https://search.google.com/search-console and submit
   `https://adkuchar.cz/sitemap.xml` so Google indexes the pages and reports problems.

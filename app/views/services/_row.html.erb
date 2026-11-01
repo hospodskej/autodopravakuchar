@@ -1,5 +1,7 @@
 <article class="service-row">
-  <%= photo_tag row.photo, class: "media-cover service-row__image" %>
+  <%# The first photo is the largest thing on screen, so it loads right away; the rest lazily. %>
+  <%= photo_tag row.photo, sizes: "(max-width: 800px) 100vw, 560px", class: "media-cover service-row__image",
+                **(row_iteration.first? ? { loading: "eager", fetchpriority: "high" } : {}) %>
   <div class="service-row__body">
     <h2><%= row.title %></h2>
     <% if row.items.any? %>
